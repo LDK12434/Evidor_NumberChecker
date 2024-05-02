@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positive Number Checker</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+        }
+        #container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Number Checker</h1>
+        <input type="number" id="numberInput" placeholder="Enter a number">
+        <div id="result"></div>
+    </div>
+    <script>
+        let numberInput = document.getElementById("numberInput");
+        let resultElement = document.getElementById("result");
+
+        numberInput.addEventListener("change", function() {
+            let number = parseFloat(numberInput.value);
+
+            if (isNaN(number)) {
+                resultElement.textContent = "Please enter a valid number.";
+            } else if (number > 0) {
+                resultElement.textContent = "The number is positive.";
+            } else if (number < 0) {
+                resultElement.textContent = "The number is negative.";
+            } else {
+                resultElement.textContent = "The number is zero.";
+            }
+        });
+    </script>
+</body>
+</html>
